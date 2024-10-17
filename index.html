@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+</head>
+<body>
+
+  <div class="containerGeneral">
+    <div class="container1">
+      <div class="filaUno">
+        <p class="title">Mortgage Calculator</p>
+        <p class="clearAll">Clear All</p>
+      </div>
+      <p class="mortgage">Mortgage Amount</p>
+      <div class="inputContainer1">
+        <input class="input1" type="text">
+        <p class="libra">£</p>
+      </div>
+
+      <div class="mortageInterest">
+        <div class="mortageDiv">
+          <p class="mortgageTerm">Mortgage Term</p>
+          <input class="input2" type="text">
+          <p class="year">years</p>
+        </div>
+        <div class="interestDiv">
+          <p class="interestRate">Interest Rate</p>
+          <input class="input3" type="text">
+          <p class="percentage">%</p>
+        </div>
+      </div>
+
+      <p class="mortgageType">Mortgage Type</p>
+
+      <div class="repaymentDiv">
+        <div class="outerCircle">
+          <div class="innerCircle"></div>
+        </div>
+        <p class="repayment">Repayment</p>
+      </div>
+      <div class="InterestOnlyDiv">
+        <div class="outerCircle">
+          <div class="innerCircle"></div>
+        </div>
+        <p class="InterestOnly">Interest Only</p>
+      </div>
+      
+      <div class="buttonCalculate">
+        <svg class="calculator" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
+        <p class="calculateRepayments">Calculate Repayments</p>
+      </div>
+    </div>
+
+
+    <!-- Empty results start -->
+    <div class="container2">
+      <img class="illustration-empty" src="mortgage-repayment-calculator-main/assets/images/illustration-empty.svg" alt="illustration-empty">
+      <p class="title2">Results shown here</p>
+      <p class="paragraph1">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+    </div>
+    <!-- Empty results end -->
+
+
+    <!-- Completed results start -->
+    <div class="container3">
+      <h1 class="yourResult">Your results</h1>
+      <p class="paragraph2">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+      <div class="containerTotal">
+        <div class="monthly">
+          <p class="monthlyRepayments">Your monthly repayments</p>
+          <p class="monye">0000000</p>
+        </div>
+        <div class="total">
+          <p class="youllRepay">you'll repay over the term</p>
+          <p>000000</p>
+        </div>
+      </div>
+    </div>
+    <!-- Completed results end -->
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">JuSeRDev</a>.
+  </div>
+  <script src="code.js"></script>
+</body>
+</html>
