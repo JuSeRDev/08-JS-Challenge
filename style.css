@@ -24,6 +24,7 @@
     --Slate500: hsl(200, 26%, 54%);
     --Slate700: hsl(200, 24%, 40%);
     --Slate900: hsl(202, 55%, 16%);
+    --black: hsl(203, 57%, 11%);
 }
 
 body{
@@ -208,7 +209,7 @@ body{
 .buttonCalculate{
     width: 310px;
     padding: 15px;
-    margin-top: 70px;
+    margin-top: 40px;
     background: var(--Lime);
     border-radius: 30px;
     display: flex;
@@ -228,10 +229,10 @@ body{
 /* CONTAINER 2 */
 
 .container2{
+    display: flex;
     max-width: 500px;
     min-width: 200px;
     padding: 40px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -263,15 +264,75 @@ body{
 
 .container3{
     display: none;
+    max-width: 500px;
+    min-width: 200px;
+    padding: 40px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: var(--Slate900);
+    border-radius: 0 20px 20px 70px;
+}
+
+.yourResult{
+    color: var(--White);
+    width: 100%;
+}
+
+.paragraph2{
+    color: var(--Slate500);
+    padding: 20px 0 30px 0;
+}
+
+.containerTotal{
+    width: 100%;
+    height: 300px;
+    background: var(--black);
+    border-radius: 5px;
+    border-top: 3px solid var(--Lime);
+    padding: 30px;
+}
+
+.monthlyRepayments, .youllRepay{
+    color: var(--Slate500);
+}
+
+.money{
+    color: var(--Lime);
+    font-size: 60px;
+    font-weight: 700;
+    padding: 25px 0 30px 0;
+    border-bottom: 1px solid var(--Slate500);
+    margin-bottom: 25px;
+}
+
+.totalYoullRepay{
+    color: var(--White);
+    padding: 15px 0 30px 0;
+    font-size: 20px;
+}
+
+.required{
+    color: var(--Red);
+    display: none;
+}
+
+.requiredDiv{
+    display: flex;
+    position: relative;
+    height: auto;
+}
+
+.rq2, .rq3{
+    position: absolute;
+    bottom: 10px;
+}
+
+.rq3{
+    left: 220px;
 }
 
 
+/* END CONTAINER 3 */
 
-.attribution {
-    font-size: 11px; 
-    text-align: center; 
-    margin-top: 20px;
-}
-.attribution a {
-    color: hsl(228, 45%, 44%);
-}
+.attribution {font-size: 11px; text-align: center; margin-top: 20px;}
+.attribution a {color: hsl(228, 45%, 44%);}
