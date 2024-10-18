@@ -14,6 +14,7 @@
 
     --Lime-hover: hsl(61, 73%, 69%);
     --Lime: hsl(61, 70%, 52%);
+    --LimeTransparent: #FAFAE2;
     --Red: hsl(4, 69%, 50%);
 
     /* ### Neutral */
@@ -104,7 +105,7 @@ body{
 }
 
 .input1:hover, .input2:hover, .input3:hover{
-    border-color: var(--Lime);
+    border-color: var(--Slate900);
 }
 
 .input1:focus, .input2:focus, .input3:focus{
@@ -116,13 +117,15 @@ body{
     position: absolute;
     background: var(--Slate100);
     width: 39px;
-    height: 47px;
-    bottom:1.5px;
+    height: 48px;
+    bottom:1px;
     border-radius: 4px 0 0 4px;
     left: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--Slate700);
+    font-weight: 700;
 }
 
 .mortageInterest{
@@ -143,14 +146,14 @@ body{
 
 .year, .percentage{
     position: absolute;
-    bottom: 1.5px;
+    bottom: 1px;
     color: var(--Slate700);
     font-weight: 700;
     background: var(--Slate100);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 47px;
+    height: 48px;
     right: 1px;
     border-radius: 0 4px 4px 0;
 }
@@ -336,3 +339,39 @@ body{
 
 .attribution {font-size: 11px; text-align: center; margin-top: 20px;}
 .attribution a {color: hsl(228, 45%, 44%);}
+
+/* MEDIAQUERY */
+
+@media (max-width: 400px) {
+    body{
+        height: auto;
+    }
+    .containerGeneral{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .filaUno{
+        flex-direction: column;
+    }
+
+    .mortageInterest{
+        flex-direction: column;
+    }
+
+    .mortageDiv, .interestDiv{
+        width: 100%;
+    }
+
+    .input2, .input3{
+        width: 100%;
+    }
+
+    .container2, .container3{
+        border-radius: 0;
+    }
+
+    .money{
+        font-size: 40px;
+    }
+}
