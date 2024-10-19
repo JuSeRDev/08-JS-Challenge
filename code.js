@@ -40,8 +40,48 @@ inputs.forEach((input, i)=> {
             lap.style.color = colorLight
             });
     })
+
+    if (input.classList.contains("input3")) {
+        input.addEventListener("input", (e) => {
+            let currentValue = e.target.value;
+            
+            if (/^\d*\.?\d*$/.test(currentValue)) {
+                e.target.value = currentValue;
+            } else {
+                e.target.value = currentValue.slice(0, -1);
+            }
+        })
+    } else{
+        input.addEventListener("input", (e)=>{
+            let currentValue = e.target.value;
+            let numericValue = currentValue.replace(/[^0-9]/g, '');
+            let formattedValue = new Intl.NumberFormat('es-ES').format(numericValue);
+            e.target.value = formattedValue;
+        })
+    }
+
 })
 
 const buttonCalculate = document.querySelector(".buttonCalculate").addEventListener("click", ()=>{
-    inputs.forEach(input=> console.log(input.value))
+    let mortgageAmount
+    let mortgageTerm
+    let interestRate
+    inputs.forEach((input, i)=> {
+        mortgageAmount = parseFloat(inputs[0].value)
+        mortgageTerm = parseInt(inputs[1].value)
+        interestRate = parseFloat(inputs[2].value)
+    })
+
+    let interesMensaual = interestRate / 100/ 12 //0.00437
+    console.log("interes mensual", interesMensaual);
+
+    let numeroTotalPagos = mortgageTerm * 12 //300
+    let formula1 = (1 + interesMensaual)**numeroTotalPagos
+    let formula2 = interesMensaual * formula1
+    let formula3 = formula1 - 1
+    let pagoMensual = mortgageAmount * (formula2 / formula3)
+
+    let pagoTotalConIntereses = pagoMensual * numeroTotalPagos
+    console.log("Total a pagar", parseFloat(pagoTotalConIntereses.toFixed(2)))
+
 })
