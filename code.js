@@ -75,26 +75,30 @@ const buttonCalculate = document.querySelector(".buttonCalculate").addEventListe
     let mortgageAmount
     let mortgageTerm
     let interestRate
-    inputs.forEach((input, i)=> {
-        mortgageAmount = parseFloat(inputs[0].value.replace(/\./g, '').replace(',', '.'))
-        mortgageTerm = parseInt(inputs[1].value)
-        interestRate = parseFloat(inputs[2].value)
 
-        if (inputs[0].value === "" || inputs[0].value === 0 || inputs[1].value === ""|| inputs[1].value === 0 || inputs[2].value === "") {
-            container3.style.display = "none"
+    mortgageAmount = parseFloat(inputs[0].value.replace(/\./g, '').replace(',', '.'))
+    mortgageTerm = parseInt(inputs[1].value)
+    interestRate = parseFloat(inputs[2].value)
+
+    const areInputsValid = inputs[0].value !== "" && inputs[0].value !== "0" && inputs[1].value !== "" && inputs[1].value !== "0" && inputs[2].value !== ""
+
+    const isDivSelected = repaymentDiv.style.background === "var(--LimeTransparent)" || InterestOnlyDiv.style.background === "var(--LimeTransparent)";
+
+    const required = document.querySelectorAll(".required")
+    if (areInputsValid && isDivSelected) {
+        container2.style.display = "none";
+        container3.style.display = "flex";
+    } else {
+        container2.style.display = "";
+        container3.style.display = "none";
+    }
+    inputs.forEach((input, i)=>{
+        if (input.value === "") {
+            required[i].style.display = "flex"
         } else {
-            container2.style.display = "none"
-            container3.style.display = "flex"
+            required[i].style.display = "none"
         }
     })
-
-    if (repaymentDiv.style.background === "var(--LimeTransparent)" || InterestOnlyDiv.style.background === "var(--LimeTransparent)") {
-        container2.style.display = "none"
-        container3.style.display = "flex"
-    } else {
-        container2.style.display = ""
-        container3.style.display = ""
-    }
 
     console.log("este es el valor de mortgageAmount", mortgageAmount)
 

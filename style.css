@@ -318,6 +318,7 @@ body{
     color: var(--Red);
     display: none;
     font-style: italic;
+    font-size: 10px;
 }
 
 .requiredDiv{
@@ -360,6 +361,10 @@ body{
         flex-direction: column;
     }
 
+    .mortageDiv{
+        margin-bottom: 10px;
+    }
+
     .mortageDiv, .interestDiv{
         width: 100%;
     }
@@ -376,11 +381,12 @@ body{
         font-size: 40px;
     }
     .rq2{
-        bottom: 80px;
+        bottom: 108px;
     }
 
     .rq3{
         left: 0;
+        bottom: 17px;
     }
     
 }
