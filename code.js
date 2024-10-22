@@ -60,6 +60,9 @@ inputs.forEach((input, i)=> {
 
 })
 
+const clearAll = document.querySelector(".clearAll").addEventListener("click", ()=> inputs.forEach(input => input.value = ""))
+
+
 const container2 = document.querySelector(".container2")
 const container3 = document.querySelector(".container3")
 const money = document.querySelector(".money")
