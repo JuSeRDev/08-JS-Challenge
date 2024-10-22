@@ -317,6 +317,7 @@ body{
 .required{
     color: var(--Red);
     display: none;
+    font-style: italic;
 }
 
 .requiredDiv{
@@ -374,4 +375,12 @@ body{
     .money{
         font-size: 40px;
     }
+    .rq2{
+        bottom: 80px;
+    }
+
+    .rq3{
+        left: 0;
+    }
+    
 }

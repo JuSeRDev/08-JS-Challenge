@@ -2,23 +2,6 @@ const outerCircles = document.querySelectorAll(".outerCircle")
 const innerCircles = document.querySelectorAll(".innerCircle")
 
 const mortgageTypeOptions = document.querySelectorAll(".mortgageTypeOption")
-// mortgageTypeOptions.forEach((option, i) =>{
-//     // FUNCTION
-//     const updateMortgageSelection = ()=>{
-//         // innerCircles.forEach(inner => inner.style.display = ""); //recorre innerCircles y oculta la clases
-//         // outerCircles.forEach(outer => outer.style.borderColor = ""); //recorre outerCicle y oculta la clases
-//         outerCircles[i].style.borderColor = "var(--Lime)"
-//         innerCircles[i].style.display = "flex"
-//         mortgageTypeOptions.forEach(opt =>{
-//             opt.style.background = ""
-//             opt.style.borderColor = ""
-//         })
-//         option.style.background = "var(--LimeTransparent)"
-//         option.style.borderColor = "var(--Lime)"
-//     }
-    
-//     option.addEventListener("click",()=> updateMortgageSelection())
-// })
 
 mortgageTypeOptions.forEach((option, i)=>{
     option.addEventListener("click", ()=>{
@@ -36,7 +19,6 @@ mortgageTypeOptions.forEach((option, i)=>{
     })
 })
 
-// const libra = document.querySelector(".libra")
 const laps = document.querySelectorAll(".lap")
 const colorDefault = "var(--Slate100)"
 const colorLime = "var(--Lime)"
@@ -97,7 +79,22 @@ const buttonCalculate = document.querySelector(".buttonCalculate").addEventListe
         mortgageAmount = parseFloat(inputs[0].value.replace(/\./g, '').replace(',', '.'))
         mortgageTerm = parseInt(inputs[1].value)
         interestRate = parseFloat(inputs[2].value)
+
+        if (inputs[0].value === "" || inputs[0].value === 0 || inputs[1].value === ""|| inputs[1].value === 0 || inputs[2].value === "") {
+            container3.style.display = "none"
+        } else {
+            container2.style.display = "none"
+            container3.style.display = "flex"
+        }
     })
+
+    if (repaymentDiv.style.background === "var(--LimeTransparent)" || InterestOnlyDiv.style.background === "var(--LimeTransparent)") {
+        container2.style.display = "none"
+        container3.style.display = "flex"
+    } else {
+        container2.style.display = ""
+        container3.style.display = ""
+    }
 
     console.log("este es el valor de mortgageAmount", mortgageAmount)
 
@@ -113,33 +110,29 @@ const buttonCalculate = document.querySelector(".buttonCalculate").addEventListe
 
     let pagoTotalConIntereses = parseFloat(pagoMensual * numeroTotalPagos)
 
-    container2.style.display = "none"
-    container3.style.display = "flex"
+    // container2.style.display = "none"
+    // container3.style.display = "flex"
 
     const numberFormat = new Intl.NumberFormat('es-ES');
 
     console.log("Pago mensual sin formatear:", pagoMensual);
     console.log("Pago total sin formatear:", pagoTotalConIntereses);
 
-    let pagoMensualFormateado = numberFormat.format(pagoMensual.toFixed(2))
-    let pagoTotalConInteresesFormateado = numberFormat.format(pagoTotalConIntereses.toFixed(2))
-
+    let pagoMensualFormateado = parseFloat(pagoMensual.toFixed(2)).toLocaleString('en')
+    let pagoTotalConInteresesFormateado = parseFloat(pagoTotalConIntereses.toFixed(2)).toLocaleString('en')
+    
     console.log("Pago mensual formateado:", pagoMensualFormateado);
     console.log("Pago total formateado:", pagoTotalConInteresesFormateado);
 
     money.textContent = `£${pagoMensualFormateado}`
     totalYoullRepay.textContent = `£${pagoTotalConInteresesFormateado}`
 
-    if (repaymentDiv.style.background == "var(--LimeTransparent)") {
-        console.log("abrete");
-        total.style.display = "block"
-    } else {
-        total.style.display = "none"
+
+    const toggleDisplay = (backgroundDiv, targetElement) => {
+        targetElement.style.display = backgroundDiv.style.background === "var(--LimeTransparent)" ? "block" : "none";
     }
-    
-    if (InterestOnlyDiv.style.background == "var(--LimeTransparent)") {
-        monthly.style.display = "block"
-    } else {
-        monthly.style.display = "none"
-    }
+
+    toggleDisplay(repaymentDiv,total)
+    toggleDisplay(InterestOnlyDiv,monthly)
+
 })
